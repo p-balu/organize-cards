@@ -1,0 +1,90 @@
+.modal-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+}
+
+.button1 {
+  width: 50%;
+  border: none;
+  background-color: white;
+  cursor: pointer;
+  color: #cfcfcf;
+  font-size: larger;
+  font-weight: 600;
+  border-bottom: 2px solid #cfcfcf;
+  padding: 15px 20px;
+}
+
+.active {
+  width: 50%;
+  border: none;
+  font-weight: 600;
+  background-color: white;
+  border-bottom: 2px solid black;
+  color: black;
+}
+
+.account-update {
+  max-width: 35%;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2%;
+}
+
+.form-update {
+  margin-top: 5%;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+  border: 1px solid #e2e5e7;
+  padding: 0px 50px;
+  border-radius: 10px;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .button1 {
+    font-size: 1rem;
+  }
+  .account-update {
+    max-width: 85%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+  .button1 {
+    font-size: 1rem;
+  }
+  .account-update {
+    max-width: 75%;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+  .button1 {
+    font-size: 1.25rem;
+  }
+  .account-update {
+    max-width: 65%;
+  }
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+  .button1 {
+    font-size: 1.35rem;
+  }
+  .account-update {
+    max-width: 50%;
+  }
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+  .button1 {
+    font-size: 1.45rem;
+  }
+  .account-update {
+    max-width: 40%;
+  }
+}

@@ -1,0 +1,54 @@
+.text-input {
+  width: 80%;
+  padding: 18px 45px;
+  border: 1px solid #c2c2c2;
+  border-radius: 10px;
+  border-radius: 5px;
+  font-size: medium;
+}
+.form-field {
+  display: flex;
+  flex-direction: column;
+  margin-top: 5%;
+}
+
+.label {
+  color: black;
+  font-weight: 600;
+  margin-left: 0.5%;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .label {
+    font-size: 1rem;
+  }
+
+  .text-input {
+    padding: 12px 38px;
+    width: 75%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 767px) and (min-width: 600px) {
+  .label {
+    font-size: 1rem;
+  }
+
+  .text-input {
+    padding: 12px 38px;
+  }
+}
+
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (max-width: 991px) and (min-width: 768px) {
+}
+
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (max-width: 1199px) and (min-width: 992px) {
+}
+
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (max-width: 1399px) and (min-width: 1200px) {
+}

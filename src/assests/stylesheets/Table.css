@@ -1,0 +1,37 @@
+table {
+  width: 90%;
+  margin-top: 1%;
+  position: relative;
+  margin-bottom: 1%;
+  font-family: "noto sans", sans-serif;
+  border: 1px solid #ccc;
+  font-size: 14.9px;
+  margin-left: 3%;
+}
+
+table td {
+  border: 1px solid #ccc;
+  padding: 8px;
+  cursor: pointer;
+  text-align: right;
+  font-weight: bold;
+}
+
+table tr:hover {
+  background-color: rgba(108, 117, 125, 0.0627451);
+}
+table tr:hover {
+  background-color: #ddd;
+}
+table th {
+  border: 1px solid #ccc;
+  padding: 8px;
+  cursor: pointer;
+  text-align: right;
+  font-weight: bold;
+  padding-top: 5px;
+  padding-bottom: 5px;
+  text-align: left;
+  color: #5a5757;
+  top: 0;
+}

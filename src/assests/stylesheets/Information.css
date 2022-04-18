@@ -1,0 +1,49 @@
+.text-fields {
+  display: flex;
+  justify-content: space-evenly;
+}
+.personal-info,
+.address-info {
+  width: 30%;
+  box-shadow: 2px 2px 3px 0 rgba(117, 124, 129, 0.12);
+  border: 1px solid #e2e5e7;
+  padding: 40px 60px;
+  border-radius: 10px;
+}
+
+.sub-address-info {
+  display: flex;
+  justify-content: space-between;
+}
+.h3 {
+  text-align: center;
+  color: black;
+}
+
+.success {
+  margin-top: 1%;
+  color: #155724;
+  background-color: #d4edda;
+  border-color: #c3e6cb;
+  padding: 12px 40px;
+  border-radius: 6px;
+  text-align: center;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+}
+
+.error {
+  padding: 12px 40px;
+  border-radius: 6px;
+  margin-top: 1%;
+  color: #721c24;
+  background-color: #f8d7da;
+  border-color: #f5c6cb;
+  text-align: center;
+  margin-bottom: 2%;
+  margin-left: auto;
+  margin-right: auto;
+  max-width: 50%;
+}

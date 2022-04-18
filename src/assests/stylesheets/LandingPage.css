@@ -1,0 +1,83 @@
+.container {
+  width: 80%;
+  margin: 0 auto;
+  display: flex;
+  margin-top: 4%;
+  padding: 50px 50px;
+  font-family: "Georgia Regular";
+}
+
+.container-1 {
+  width: 50%;
+  line-height: normal;
+  margin-top: 9%;
+  margin-left: 10%;
+}
+.image-sketch {
+  animation: fadeInRight 2s;
+}
+
+.text-1 {
+  font-weight: 600;
+  font-size: 2rem;
+  line-height: 2px;
+  color: #707070;
+  animation: fadeInRight 1.5s;
+}
+
+.text-2 {
+  font-weight: 600;
+  font-size: 3rem;
+  line-height: 1px;
+  color: #f0ad11;
+  animation: fadeInRight 1.5s;
+}
+
+.text-3 {
+  font-weight: 600;
+  font-size: 2.5rem;
+  line-height: 0px;
+  letter-spacing: normal;
+  color: #707070;
+  animation: fadeInRight 1.5s;
+}
+
+.button {
+  background-color: #365a0c;
+  border: none;
+  width: 34%;
+  margin-top: 2%;
+  border-radius: 45px;
+  padding: 18px 20px;
+  color: white;
+  font-size: x-large;
+  font-weight: 600;
+  cursor: pointer;
+  animation: fadeInRight 1.5s;
+}
+
+.button:hover {
+  background-color: #3f7205;
+}
+
+@keyframes fadeInRight {
+  from {
+    opacity: 0;
+    transform: translatex(100px);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
+
+@keyframes fadeInLeft {
+  from {
+    opacity: 0;
+    transform: translatex(-100px);
+  }
+  to {
+    opacity: 1;
+    transform: translatex(0);
+  }
+}
