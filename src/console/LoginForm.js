@@ -47,9 +47,8 @@ const LoginForm = ({ handleTabChange, handleModalLoginClose }) => {
             navigate("/admin");
           }
         } else {
-          console.log("Error");
+          console.log("Error", data);
           setMessage("");
-          setError(data.message);
         }
       });
   };

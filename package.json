@@ -28,6 +28,10 @@
   "author": "Group 2",
   "license": "ISC",
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^6.1.1",
+    "@fortawesome/free-brands-svg-icons": "^6.1.1",
+    "@fortawesome/free-solid-svg-icons": "^6.1.1",
+    "@fortawesome/react-fontawesome": "^0.1.18",
     "dotenv": "^16.0.0",
     "fs": "^0.0.1-security",
     "os": "^0.1.2",

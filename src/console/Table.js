@@ -1,12 +1,20 @@
-import React, { useState } from "react";
-import { Link } from "react-router-dom";
+import React, { useState, useEffect } from "react";
 import { titleCase } from "title-case";
 import "../assests/stylesheets/Table.css";
 import Modal from "../components/Modal/Modal";
 import Edit from "./Edit";
-const Table = ({ contacts }) => {
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faArrowUp,
+  faArrowDown,
+  faEdit,
+  faDeaf,
+  faDeleteLeft,
+  faRemove,
+} from "@fortawesome/free-solid-svg-icons";
+const Table = ({ contacts, handleRefresh }) => {
   const [show, setShow] = useState(false);
-  const [contact, setContact] = useState([]);
+  const [editContact, setEditContact] = useState([]);
   const [success, setSucces] = useState("");
   const [error, setError] = useState("");
 
@@ -23,16 +31,21 @@ const Table = ({ contacts }) => {
     fetch("http://localhost:8000/get-contact", request)
       .then((res) => res.json())
       .then((data) => {
-        setContact(data.Items[0]);
+        setEditContact(data.Items[0]);
+        handleRefresh(true);
       });
   };
 
   const handleClose = () => {
     setShow(false);
+    handleRefresh(true);
   };
 
   const handleModalClose = (value) => {
+    setSucces("");
+    setError("");
     setShow(value);
+    handleRefresh(true);
   };
 
   const handleDelete = (event, contactId) => {
@@ -48,9 +61,14 @@ const Table = ({ contacts }) => {
       .then((res) => res.json())
       .then((data) => {
         if (data.ResponseMetadata.HTTPStatusCode == 200) {
+          console.log("entered");
           setSucces("Contact deleted successfully");
+          handleRefresh(true);
+          setError("");
+          console.log("entered1");
         } else {
           setError("Server Error Occured");
+          handleRefresh(true);
         }
       });
   };
@@ -83,7 +101,7 @@ const Table = ({ contacts }) => {
           </tr>
         </thead>
         <tbody>
-          {Object.keys(contacts).length === 0 ? (
+          {contacts.length === 0 || contacts === undefined ? (
             <tr>
               <td
                 colSpan="10"
@@ -98,33 +116,49 @@ const Table = ({ contacts }) => {
               </td>
             </tr>
           ) : (
-            <tr>
-              <td>{contacts.name}</td>
-              <td>{contacts.organization}</td>
-              <td>{contacts.title}</td>
-              <td>{contacts.email}</td>
-              <td>{contacts.phone}</td>
-              <td>{contacts.address}</td>
-              <td>{contacts.city}</td>
-              <td>{contacts.zip}</td>
-              <td>{contacts.state}</td>
-              <td>
-                <button
-                  onClick={(event) => {
-                    handleEdit(event, contacts.contact_id);
-                  }}
-                >
-                  Edit
-                </button>
-                <button
-                  onClick={(event) => {
-                    handleDelete(event, contacts.contact_id);
-                  }}
-                >
-                  Delete
-                </button>
-              </td>
-            </tr>
+            contacts.map((contact, id) => (
+              <tr key={id}>
+                <td>{contact.name}</td>
+                <td>{contact.organization}</td>
+                <td>{contact.title}</td>
+                <td>{contact.email}</td>
+                <td>{contact.phone}</td>
+                <td>{contact.address}</td>
+                <td>{contact.city}</td>
+                <td>{contact.postal}</td>
+                <td>{contact.state}</td>
+                <td>
+                  <button
+                    onClick={(event) => {
+                      handleEdit(event, contact.contact_id);
+                    }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "blue",
+                      cursor: "pointer",
+                      fontSize: "15px",
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faEdit} />
+                  </button>
+                  <button
+                    onClick={(event) => {
+                      handleDelete(event, contact.contact_id);
+                    }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "red",
+                      cursor: "pointer",
+                      fontSize: "20px",
+                    }}
+                  >
+                    <FontAwesomeIcon icon={faRemove} />
+                  </button>
+                </td>
+              </tr>
+            ))
           )}
         </tbody>
       </table>
@@ -135,7 +169,7 @@ const Table = ({ contacts }) => {
           style={{ width: "70%" }}
           text="log"
         >
-          <Edit handleModalClose={handleModalClose} contact={contact} />
+          <Edit handleModalClose={handleModalClose} editContact={editContact} />
         </Modal>
       </div>
     </>

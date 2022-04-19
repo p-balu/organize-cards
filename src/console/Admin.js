@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { titleCase } from "title-case";
 import { CSVLink, CSVDownload } from "react-csv";
-
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import {
+  faRemove,
+} from "@fortawesome/free-solid-svg-icons";
 const Admin = () => {
   const [contacts, setContacts] = useState([]);
   const [refresh, setRefresh] = useState(true);
@@ -125,8 +128,15 @@ const Admin = () => {
                     onClick={(event) => {
                       handleDelete(event, contact.contact_id);
                     }}
+                    style={{
+                      background: "none",
+                      border: "none",
+                      color: "red",
+                      cursor: "pointer",
+                      fontSize: "20px",
+                    }}
                   >
-                    Delete
+                    <FontAwesomeIcon icon={faRemove} />
                   </button>
                 </td>
               </tr>

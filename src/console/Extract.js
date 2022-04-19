@@ -29,7 +29,7 @@ const ContainerHeader = ({ active, handleActive }) => {
         Extract and Add
       </button>
       <button className={buttonClass1} onClick={handleMyContacts}>
-        My Contacts
+        Contacts
       </button>
     </div>
   );

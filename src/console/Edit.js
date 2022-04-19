@@ -3,7 +3,7 @@ import TextInput from "../components/TextInput/TextInput";
 import "../assests/stylesheets/Information.css";
 import { titleCase } from "title-case";
 
-const Edit = ({ contact, handleModalClose }) => {
+const Edit = ({ editContact, handleModalClose }) => {
   const [name, setName] = useState("");
   const [title, setTitle] = useState("");
   const [email, setEmail] = useState("");
@@ -16,6 +16,7 @@ const Edit = ({ contact, handleModalClose }) => {
   const [success, setSucces] = useState("");
   const [error, setError] = useState("");
 
+  console.log(editContact.contact_id);
   //api for the saving the data into database will be done here
   const handleUpdate = (event) => {
     event.preventDefault();
@@ -28,12 +29,13 @@ const Edit = ({ contact, handleModalClose }) => {
         title: title,
         email: email,
         phone: phone,
-        image: contact.image,
+        image: editContact.image,
         organization: organization,
         city: city,
         address: address,
         postal: postal,
         state: state,
+        contact_id: editContact.contact_id,
         user_id: localStorage.getItem("user"),
       }),
     };
@@ -54,26 +56,28 @@ const Edit = ({ contact, handleModalClose }) => {
           setState("");
           setTitle("");
           handleModalClose(false);
+          handleRefresh(true);
         } else {
           setSucces("");
           setError("");
           setError("Server Error Occured");
           handleModalClose(false);
+          handleRefresh(true);
         }
       });
   };
 
   useEffect(() => {
-    setName(contact.name);
-    setAddress(contact.address);
-    setOrganization(contact.organization);
-    setCity(contact.city);
-    setEmail(contact.email);
-    setPhone(contact.phone);
-    setPostal(contact.zip);
-    setTitle(contact.title);
-    setState(contact.state);
-  }, [contact]);
+    setName(editContact.name);
+    setAddress(editContact.address);
+    setOrganization(editContact.organization);
+    setCity(editContact.city);
+    setEmail(editContact.email);
+    setPhone(editContact.phone);
+    setPostal(editContact.zip);
+    setTitle(editContact.title);
+    setState(editContact.state);
+  }, [editContact]);
 
   return (
     <>
